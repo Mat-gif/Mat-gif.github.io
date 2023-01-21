@@ -35,7 +35,31 @@ section {
 }
 
 .letter {
-  font-size: 8vw;
+  font-size: 6vw;
+  display: inline-block;
+}
+
+#intro
+{
+  font-size: 1.5vw;
+  padding: 10px 100px 10px 100px;
+  font-style: italic;
+}
+#conclusion 
+{
+  font-size: 1.5vw;
+  padding: 10px 100px 10px 100px;
+  font-style: italic;
+}
+
+.coord {
+  font-size: 1.5vw;
+  padding: 10px 100px 10px 100px;
+}
+
+.diploma-container {
+  font-size: 1.5vw;
+  padding: 10px 40px 10px 40px;
   display: inline-block;
 }
 
