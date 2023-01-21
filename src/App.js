@@ -1,11 +1,11 @@
 import "./App.css"
-import { useEffect, useRef, useState  } from "react"
+import { useEffect, useRef  } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 import moi from "./moi.png"
+import { formations } from './Formation';
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+gsap.registerPlugin(ScrollTrigger)
 
 
 
@@ -15,26 +15,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 function App() {
 
-  const [formations, setFormations] = useState([
-    {
-      title: "Formation 1",
-      period: "Du 01/01/2021 au 01/01/2022",
-      location: "Paris, France",
-      mention: "Bien"
-    },
-    {
-      title: "Formation 2",
-      period: "Du 01/01/2022 au 01/01/2023",
-      location: "Lyon, France",
-      mention: "Très bien"
-    },
-    {
-      title: "Formation 3",
-      period: "Du 01/01/2023 au 01/01/2024",
-      location: "New York, USA",
-      mention: "Excellent"
-    }
-  ]);
+  
 
   let intro = "Je suis actuellement étudiant en  Master d'informatique et passionné par le développement web et JavaScript, je souhaite développer mes connaissances dans l’intégration de technologies web pour créer des applications modernes et performantes. Je suis à la recherche d'une alternance pour ma dernière année de master afin de mettre en pratique mes connaissances et de continuer à développer mes compétences dans ce domaine passionnant.";
   let conclusion = "Ayant acquis une solide expérience en résolution de problèmes techniques grâce à mes projets de fin d'études et à mes expériences professionnelles. Je suis également habitué à apprendre rapidement de nouvelles technologies et de nouveaux outils, afin de me tenir à jour dans le domaine en constante évolution. Enfin, je suis efficace dans le travail d’équipe, j'ai déjà travaillé en collaboration avec d'autres membres pour atteindre des objectifs communs. Je suis convaincu que ces compétences font de moi un atout pour tout projet de développement web et je suis impatient de continuer à développer ces compétences.";
@@ -179,9 +160,12 @@ function App() {
             {formations.map((formation, index) => (
               <div className="diploma-container" key={index}>
                 <div className="diploma-title">{formation.title}</div>
+                <div className="diploma-speciality">{formation.speciality}</div>
                 <div className="diploma-period">Période : {formation.period}</div>
                 <div className="diploma-location">Lieu : {formation.location}</div>
+                {formation.hasOwnProperty('mention') && (
                 <div className="diploma-mention">Mention : {formation.mention}</div>
+                )}
               </div>
             ))}
         </div>
