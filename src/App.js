@@ -4,6 +4,8 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import moi from "./moi.png"
 import { formations } from './Formation';
+import { experiences } from './Experiences';
+import { skills } from './Skills';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -158,7 +160,7 @@ function App() {
         <div id="box1" className="box" onMouseEnter={onEnter} onMouseLeave={onLeave}>
           Formations
             {formations.map((formation, index) => (
-              <div className="diploma-container" key={index}>
+              <div className="my-container" key={index}>
                 <div className="diploma-title">{formation.title}</div>
                 <div className="diploma-speciality">{formation.speciality}</div>
                 <div className="diploma-period">Période : {formation.period}</div>
@@ -166,14 +168,46 @@ function App() {
                 {formation.hasOwnProperty('mention') && (
                 <div className="diploma-mention">Mention : {formation.mention}</div>
                 )}
+                {formation.hasOwnProperty('skills') && (
+                formation.skills.map((skill, index) => (
+                  <ul className="my-list" key={index}>
+                    <li className="formation-skill" > {skill}</li>
+                  </ul>
+                )))}
               </div>
             ))}
         </div>
         <div id="box2" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
-          Compétences
+          Compétences aquises depuis ma reconversion 
+          {skills.map((skill, index) => (
+              <div className="my-container" key={index}>
+                <div className="skill-name">{skill.name}</div>
+                {skill.hasOwnProperty('specialities') && (
+                skill.specialities.map((speciality, index) => (
+                  <ul className="my-list" key={index}>
+                    <li className="skill-speciality" > {speciality}</li>
+                  </ul>
+                )))}
+              </div>
+            ))}
         </div>
+
         <div id="box3" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
-          Expériences
+          Expériences 
+          {experiences.map((experience, index) => (
+              <div className="my-container" key={index}>
+                <div className="experience-title">{experience.title}</div>
+                <div className="experience-speciality">{experience.speciality}</div>
+                <div className="experience-period">Période : {experience.period}</div>
+                <div className="experience-location">Lieu : {experience.location}</div>
+                {experience.skills.map((skill, index) => (
+     
+                  <ul className="my-list" key={index}>
+                    <li className="experience-skill" > {skill}</li>
+                  </ul>
+                ))}
+              </div>
+            ))}
         </div>
         <div id="conclusion" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
             {conclusion}

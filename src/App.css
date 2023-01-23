@@ -57,15 +57,22 @@ section {
   padding: 10px 100px 10px 100px;
 }
 
-.diploma-container {
-  font-size: 1vw;
+.my-container {
+  font-size: 2vw;
   padding: 10px 40px 10px 40px;
   display: inline-block;
 }
+
 
 img {
   width: 400px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-list{
+  margin: auto;
+  font-style: italic;
+  font-size: 1.5vw;
 }

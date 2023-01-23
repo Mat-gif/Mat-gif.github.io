@@ -17,7 +17,8 @@ const formations = [
       speciality:"Oceanographie Biologique et Ecologie Marine (OBEM)",
       period: "2019-2021",
       location: "Aix-Mareille Université, Marseille, France",
-      mention: "Bien"
+      mention: "Bien",
+      skills : ["Statistiques spatiales, descriptives et analytiques", "Modélisation et méthodes numériques", "Analyses de séries temporelles", "Analyses de signaux", "R, Python, Fortran 90"]
     },
     {
         title: "Master Informatique",
