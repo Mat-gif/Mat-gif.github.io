@@ -1,11 +1,14 @@
-.App {
+
+
+/* Utilisez une classe générique pour les éléments de mise en page */
+.center {
   text-align: center;
+  margin: auto;
 }
 
+/* Utilisez des valeurs relatives pour les dimensions de layout */
 section {
   display: flex;
-  width: 100vw;
-  background: #EEE;
   justify-content: center;
   flex-direction: column;
   overflow: hidden;
@@ -16,52 +19,70 @@ section {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  font-size: 5vw;
-  border-bottom: 1px solid #666;
+  font-size: 3vw;
+  padding: 10px 100px 10px 100px;
+  border-bottom: 1px solid;
+  border-color: #666;
 }
 
-.divtitle {
-  margin-top: 10vh;
+
+
+.small{
+  font-size: 1.5vw;
+}
+
+.verySmall{
+  font-size: 1vw;
+}
+
+.italic {
+  font-style: italic;
+}
+
+
+
+/* Utilisez des valeurs relatives pour les dimensions de police */
+.section-title {
   height: 100vh;
 }
 
-
 .title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: normal;
-  margin: 0;
-}
-
-.letter {
   font-size: 6vw;
-  display: inline-block;
+  font-weight: normal;
 }
 
-#intro
-{
-  font-size: 1.5vw;
-  padding: 10px 100px 10px 100px;
-  font-style: italic;
-}
-#conclusion 
-{
-  font-size: 1.5vw;
-  padding: 10px 100px 10px 100px;
-  font-style: italic;
-}
-
-.coord {
-  font-size: 1.5vw;
-  padding: 10px 100px 10px 100px;
-}
-
+/* Utilisez des classes génériques pour les éléments de mise en page similaires */
 .my-container {
-  font-size: 2vw;
   padding: 10px 40px 10px 40px;
-  display: inline-block;
 }
+
+
+.miniBox{
+  border: 1px solid;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
+
+.dotLine {
+  border-top: 1px dashed;
+}
+
+.miniBox2{
+  border: 1px solid;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
+
 
 
 img {
@@ -71,8 +92,20 @@ img {
   margin-right: auto;
 }
 
-.my-list{
+/* Utilisez des valeurs relatives pour les dimensions de police */
+.my-list {
   margin: auto;
-  font-style: italic;
-  font-size: 1.5vw;
+  text-align: center;
+  list-style-position: inside;
 }
+
+
+.bold{
+  font-weight: bolder;
+}
+
+
+a {color: #7495b7}     /* lien non-visité */
+a:visited {color: #7495b7}  /* lien visité */
+a:hover {color:lightskyblue}   /* lien au survol */
+a:active {color: #144272}   /* lien sélectionné */
