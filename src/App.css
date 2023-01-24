@@ -113,3 +113,19 @@ a {color: #7495b7}     /* lien non-visité */
 a:visited {color: #7495b7}  /* lien visité */
 a:hover {color:lightskyblue}   /* lien au survol */
 a:active {color: #144272}   /* lien sélectionné */
+
+nav {
+  display: grid;
+  align-content: start; /* aligne toutes les lignes de la grille sur le début de la zone de la grille */
+  position: fixed;
+  z-index: 999; /* n'importe quel nombre plus grand que le z-index des autres éléments de votre page */
+}
+
+.nav-link {
+  font-weight: bolder;
+  margin: 5px 10px 5px 10px;
+  padding: 10px 10px 10px 10px;
+  -moz-border-radius:7px;
+  -webkit-border-radius:7px;
+  border-radius:7px;
+}
