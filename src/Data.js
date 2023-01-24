@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub  } from "@fortawesome/free-brands-svg-icons";
 import { faBriefcase, faCalendarDays, faEnvelope, faLocationDot, faPhone  } from "@fortawesome/free-solid-svg-icons";
-
-
+import { useEffect, useRef  } from "react"
+import { onLoad, slideIn, onEnter, onLeave } from './Effet';
 
 
 function DisplayTitre(props) {
@@ -66,7 +66,8 @@ const formations = [
   
   function DisplayFormations(props) {
     return (
-      <div>
+      <div id="box1" className="box" onMouseEnter={onEnter} onMouseLeave={onLeave} >
+          Formations
             {props.map((prop, index) => (
               <div className="my-container small miniBox" key={index}>
                 <div className="diploma-title bold"><a href={prop.url}> {prop.title} </a></div>
@@ -101,7 +102,8 @@ const formations = [
 
   function DisplayExperiences(props) {
     return (
-      <div>
+       <div id="box3" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
+          Expériences 
           {props.map((prop, index) => (
               <div className="my-container small miniBox2" key={index}>
                 <div className="experience-title bold">{prop.title}</div>
@@ -144,7 +146,8 @@ const formations = [
   
   function DisplaySkills(props) {
     return (
-      <div>
+      <div id="box2" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave} >
+          Compétences 
          {props.map((prop, index) => (
               <div className="my-container small miniBox" key={index}>
                 <div className="skill-name bold">{prop.name}</div>
@@ -177,7 +180,7 @@ const formations = [
 
   function DisplayContacts(props) {
     return (
-      <div>
+     <div id="box5" className="box" onMouseEnter={onEnter} onMouseLeave={onLeave}>
             {props.map((prop, index) => (
         <div className="my-container small" key={index}>
           <div className="contact-name bold">{prop.name}</div>

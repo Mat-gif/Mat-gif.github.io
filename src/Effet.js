@@ -69,11 +69,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 
   const onEnter = ({ currentTarget }) => {
-    gsap.to(currentTarget, { backgroundColor: "#144272", color: "#FFF",   bordercolor: "#FFF" } )
+    gsap.to(currentTarget, { backgroundColor: "#144272", color: "white",   bordercolor: "white" } )
   }
 
   const onLeave = ({ currentTarget }) => {
-    gsap.to(currentTarget, { backgroundColor: "#FFF", color: "#144272" , bordercolor: "#666"})
+    gsap.to(currentTarget, { backgroundColor: "white", color: "#144272" , bordercolor: "#666"})
   }
 
 

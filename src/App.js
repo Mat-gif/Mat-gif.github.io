@@ -54,54 +54,40 @@ function App() {
     
 
       <section className="section-title">
-        <img src={moi}  className="letter" />
+        <img src={moi} />
         {DisplayTitre(useRef())}
       </section>
 
-      <section id="nextSection">
-      <Element name="section1">
+  
+
+      <Element name="section1" className="elem">
         <div id="intro" className="box small italic" onMouseEnter={onEnter} onMouseLeave={onLeave}>
             {intro}
         </div>
         </Element>
 
-        <Element name="section2">
-        <div id="box1" className="box" onMouseEnter={onEnter} onMouseLeave={onLeave} >
-          Formations
+        <Element name="section2" className="elem" >
           {DisplayFormations(formations)}
-        </div>
         </Element>
 
-        <Element name="section3">
-        <div id="box2" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave} >
-          Compétences 
+        <Element name="section3" className="elem">
           {DisplaySkills(skills)}
-        </div>
         </Element>
         
-        <Element name="section4">
-        <div id="box3" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
-          Expériences 
+        <Element name="section4" className="elem">
           {DisplayExperiences(experiences)}
-        </div>
         </Element>
         
-        <Element name="section5">
+        <Element name="section5" className="elem">
         <div id="conclusion" className="box small italic"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
           {conclusion}
         </div>
         </Element>
-        
-      </section>
-
-      <section id="lastSection"  >
-      <Element name="section6">
-      <div id="box5" className="box" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+  
+      <Element name="section6" className="elem">
           {DisplayContacts(contacts)}
-        </div>
       </Element>
         
-      </section>
 
     </div>
   )
