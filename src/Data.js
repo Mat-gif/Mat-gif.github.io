@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub  } from "@fortawesome/free-brands-svg-icons";
-import { faBriefcase, faEnvelope, faLocationDot, faPhone  } from "@fortawesome/free-solid-svg-icons";
+import { faBriefcase, faCalendarDays, faEnvelope, faLocationDot, faPhone  } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -33,7 +33,8 @@ const formations = [
     title: "Master Informatique",
     speciality:"Intégration de Compétences (ICO)",
     period: "En cours",
-    location: "Université de Montpellier, Montpellier, France"
+    location: "Université de Montpellier, Montpellier, France",
+    url: "https://informatique-fds.edu.umontpellier.fr/etudiants/offre-de-formation-lmd5/parcours-ico-integration-de-competences-ouverture-septembre-2021-2/"
   },
   {
     title: "Master Sciences de la mer",
@@ -41,20 +42,22 @@ const formations = [
     period: "2019-2021",
     location: "Aix-Mareille Université, Marseille, France",
     mention: "Bien",
-    skills : ["Statistiques spatiales, descriptives et analytiques", "Modélisation et méthodes numériques", "Analyses de séries temporelles", "Analyses de signaux", "R, Python, Fortran 90"]
+    skills : ["Statistiques spatiales, descriptives et analytiques", "Modélisation et méthodes numériques", "Analyses de séries temporelles", "Analyses de signaux", "R, Python, Fortran 90"],
+    url: "https://formations.univ-amu.fr/ME5LSM-PRLSM5AB.html"
   },
   {
     title: "Licence Sciences de la vie",
     speciality:"Biochimie Biologie Moléculaire et Microbiologie (2B2M)",
     period: "2016-2019",
-    location: "Université Paul Sabatier, Toulouse, France"
+    location: "Université Paul Sabatier, Toulouse, France",
+    url: "https://www.univ-tlse3.fr/licence-parcours-biochimie-biologie-moleculaire-et-microbiologie-2b2m"
   },
     {
       title: "Baccalauréat général",
       speciality:"Scientifique",
       period: "2013-2015",
       location: "Nouvelle-Calédonie, France",
-      mention: "Assez bien"
+      mention: "Assez bien",
     }
 
  
@@ -66,19 +69,19 @@ const formations = [
       <div>
             {props.map((prop, index) => (
               <div className="my-container small miniBox" key={index}>
-                <div className="diploma-title bold">{prop.title}</div>
+                <div className="diploma-title bold"><a href={prop.url}> {prop.title} </a></div>
                 <div className="diploma-speciality">{prop.speciality}</div>
-                <div className="diploma-period">Période : {prop.period}</div>
-                <div className="diploma-location">Lieu : {prop.location}</div>
+                <div className="diploma-period"><FontAwesomeIcon icon={faCalendarDays} />  {prop.period}</div>
+                <div className="diploma-location"><FontAwesomeIcon icon={faLocationDot} /> {prop.location}</div>
                 {prop.hasOwnProperty('mention') && (
                 <div className="diploma-mention">Mention : {prop.mention}</div>
                 )}
-                {prop.hasOwnProperty('skills') && <ul className="my-list verySmall italic dotLine" key={index}>
+                {prop.hasOwnProperty('skills') && <div className="verySmall italic dotLine"> 
                 {prop.hasOwnProperty('skills') && (
                 prop.skills.map((skill, index) => (
-                    <li className="formation-skill" > {skill}</li>
+                    <div className="formation-skill" > {skill}</div>
                 )))}
-                </ul>}
+                </div>}
               </div> 
             ))}
       </div>
@@ -103,13 +106,13 @@ const formations = [
               <div className="my-container small miniBox2" key={index}>
                 <div className="experience-title bold">{prop.title}</div>
                 <div className="experience-speciality">{prop.speciality}</div>
-                <div className="experience-period">Période : {prop.period}</div>
-                <div className="experience-location">Lieu : {prop.location}</div>
-                <ul className="my-list verySmall italic dotLine" key={index}>
-                {prop.skills.map((skill, index) => (
-                    <li className="experience-skill" > {skill}</li>
-                ))}
-                </ul>
+                <div className="experience-period"><FontAwesomeIcon icon={faCalendarDays} /> {prop.period}</div>
+                <div className="experience-location"><FontAwesomeIcon icon={faLocationDot} /> {prop.location}</div>
+                <div className="verySmall italic dotLine"> 
+                  {prop.skills.map((skill, index) => (
+                      <div className="experience-skill" > {skill}</div>
+                  ))}
+                </div>
               </div>
             ))}
             
@@ -145,12 +148,12 @@ const formations = [
          {props.map((prop, index) => (
               <div className="my-container small miniBox" key={index}>
                 <div className="skill-name bold">{prop.name}</div>
-                {prop.hasOwnProperty('specialities') &&  <ul className="my-list verySmall italic dotLine" key={index}>
+                {prop.hasOwnProperty('specialities') && <div className="verySmall italic dotLine"> 
                 {prop.hasOwnProperty('specialities') && (
                 prop.specialities.map((speciality, index) => (
-                    <li className="skill-speciality" >{speciality}</li>
+                    <div className="skill-speciality" >{speciality}</div>
                 )))}
-                </ul>}
+              </div>}
               </div>
             ))}
             
