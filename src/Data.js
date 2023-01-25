@@ -151,6 +151,7 @@ const formations = [
   function DisplaySkills(props) {
 
    const [selectedDiv, setSelectedDiv] = useState(null);
+   
    const [isVisible, setIsVisible] = useState(false);
    
    const handleDivClick = (divId) => {
