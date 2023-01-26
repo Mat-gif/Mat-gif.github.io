@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub  } from "@fortawesome/free-brands-svg-icons";
-import { faBriefcase, faCalendarDays, faEnvelope, faLocationDot, faPhone  } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faBriefcase, faCalendarDays, faCircleChevronDown, faEnvelope, faLocationDot, faPhone  } from "@fortawesome/free-solid-svg-icons";
 import { useState   } from "react"
-import {onEnter, onLeave } from './Effet';
+
 
 
 function DisplayTitre(props) {
@@ -30,13 +30,22 @@ function DisplayTitre(props) {
 
 const formations = [
   {
+    id: "dip1", 
     title: "Master Informatique",
     speciality:"Intégration de Compétences (ICO)",
     period: "En cours",
     location: "Université de Montpellier, Montpellier, France",
+    skills : [ "Javascript (Node.js, Jquery, Api REST, React)",
+                "Html, CSS, Php",
+                "Programmation orientée objet (Java)",
+                "Architecture logiciel  (Java, Api REST/SOAP, Spring)",
+                "Scripting Système (Pyhton / Bash)",
+                "UML, algèbre relationnelle, SQL"
+    ],
     url: "https://informatique-fds.edu.umontpellier.fr/etudiants/offre-de-formation-lmd5/parcours-ico-integration-de-competences-ouverture-septembre-2021-2/"
   },
   {
+    id: "dip2", 
     title: "Master Sciences de la mer",
     speciality:"Oceanographie Biologique et Ecologie Marine (OBEM)",
     period: "2019-2021",
@@ -46,6 +55,7 @@ const formations = [
     url: "https://formations.univ-amu.fr/ME5LSM-PRLSM5AB.html"
   },
   {
+    id: "dip3", 
     title: "Licence Sciences de la vie",
     speciality:"Biochimie Biologie Moléculaire et Microbiologie (2B2M)",
     period: "2016-2019",
@@ -53,6 +63,7 @@ const formations = [
     url: "https://www.univ-tlse3.fr/licence-parcours-biochimie-biologie-moleculaire-et-microbiologie-2b2m"
   },
     {
+      id: "dip4", 
       title: "Baccalauréat général",
       speciality:"Scientifique",
       period: "2013-2015",
@@ -65,11 +76,31 @@ const formations = [
   
   
   function DisplayFormations(props) {
+    
+  const [selectedDiv, setSelectedDiv] = useState(null);
+   
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const handleDivClick = (divId) => {
+   if(divId === selectedDiv){
+     console.log("if")
+     setIsVisible(!isVisible);
+   } else {
+     console.log("else")
+     setSelectedDiv(divId);
+     setIsVisible(true);
+   }
+ }
     return (
-      <div id="box1" className="box" onMouseEnter={onEnter} onMouseLeave={onLeave} >
-          Formations
+      <div id="box1" className="box"  >
+            <h3>Formations & Compétences</h3>   
             {props.map((prop, index) => (
-              <div className="my-container small miniBox" key={index} >
+
+              <div className="my-container small miniBox"
+              key={`${prop.id}-${index}`} 
+              onClick={() =>  handleDivClick(prop.id)}
+                >
+
                 <div className="diploma-title bold"><a href={prop.url}> {prop.title} </a></div>
                 <div className="diploma-speciality">{prop.speciality}</div>
                 <div className="diploma-period"><FontAwesomeIcon icon={faCalendarDays} />  {prop.period}</div>
@@ -77,10 +108,17 @@ const formations = [
                 {prop.hasOwnProperty('mention') && (
                 <div className="diploma-mention">Mention : {prop.mention}</div>
                 )}
-                {prop.hasOwnProperty('skills') && <div className="verySmall italic dotLine"> 
+
+                {
+                  prop.hasOwnProperty('skills') &&
+                  <p><FontAwesomeIcon icon={faCircleChevronDown} /></p>
+                }
+                { selectedDiv === prop.id && 
+                  isVisible   &&  
+                prop.hasOwnProperty('skills') && <div className="small italic left"> 
                 {prop.hasOwnProperty('skills') && (
                 prop.skills.map((skill, index) => (
-                    <div className="formation-skill" > {skill}</div>
+                    <div className="formation-skill" ><FontAwesomeIcon icon={faArrowRight} /> {skill}</div>
                 )))}
                 </div>}
               </div> 
@@ -92,36 +130,69 @@ const formations = [
 
   const experiences = [
     {
+      id: "experience1",
       title: "Stage de Recherche de Master 2",
       speciality:"Évolution spatio-temporelle de la diversité du phytoplancton dans les écosystèmes côtiers français face aux influences climatiques et anthropiques.",
       period: "01/2021 – 05/2021",
       location: "UMR EPOC – Station Marine d’Arcachon, France",
-      skills : ["Analyse de données", "Analyse de séries temporelles", "Statistiques univariées et multivarié", "Modélisation dynamique", "Progarmmation sous R"]
+      skills : ["Analyse de données", "Analyse de séries temporelles", "Statistiques univariées et multivarié", "Modélisation dynamique", "Programmation sous R"]
     }
   ];
 
   function DisplayExperiences(props) {
+
+  const [selectedDiv, setSelectedDiv] = useState(null);
+   
+   const [isVisible, setIsVisible] = useState(false);
+   
+   const handleDivClick = (divId) => {
+    if(divId === selectedDiv){
+      console.log("if")
+      setIsVisible(!isVisible);
+    } else {
+      console.log("else")
+      setSelectedDiv(divId);
+      setIsVisible(true);
+    }
+  }
+
     return (
-       <div id="box3" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
-          Expériences 
+       <div id="box3" className="box" >
+          <h3>Expériences </h3>
           {props.map((prop, index) => (
-              <div className="my-container small miniBox2" key={index}>
+
+              <div className="my-container small miniBox2" 
+              key={`${prop.id}-${index}`} 
+              onClick={() =>  handleDivClick(prop.id)}
+              >
                 <div className="experience-title bold">{prop.title}</div>
                 <div className="experience-speciality">{prop.speciality}</div>
                 <div className="experience-period"><FontAwesomeIcon icon={faCalendarDays} /> {prop.period}</div>
                 <div className="experience-location"><FontAwesomeIcon icon={faLocationDot} /> {prop.location}</div>
-                <div className="verySmall italic dotLine"> 
+                
+                  
+                  
+                {
+                  <p><FontAwesomeIcon icon={faCircleChevronDown} /></p>
+                }
+              
+                {
+                  
+                  selectedDiv === prop.id && 
+                  isVisible   &&  
+                  <div className="small italic left"> 
                   {prop.skills.map((skill, index) => (
-                      <div className="experience-skill" > {skill}</div>
+                      <div className="experience-skill" ><FontAwesomeIcon icon={faArrowRight} /> {skill}</div>
                   ))}
                 </div>
+              }
               </div>
             ))}
             
       </div>
     )}
 
-
+/*
 
   const skills = [
     {
@@ -138,7 +209,7 @@ const formations = [
         id: "skill3",
         name: "Scripting Système", 
         specialities:["Pyhton","Bash"]
-    },
+    }, 
     {
         id: "skill4",
         name: "Systèmes d'information et bases de données",
@@ -166,7 +237,7 @@ const formations = [
   }
 
     return (
-      <div id="box2" className="box"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
+      <div id="box2" className="box"  >
           Compétences 
          {props.map((prop, index) => (
 
@@ -176,11 +247,14 @@ const formations = [
 
                 <div className="skill-name bold">{prop.name}</div>
 
-                
-                <p>Cliquez pour afficher plus d'informations</p>
-
-                {selectedDiv === prop.id && isVisible   &&  <div className="verySmall italic dotLine"> 
-                
+                {
+                  <p><FontAwesomeIcon icon={faCircleChevronDown} /></p>
+                }
+              
+                {
+                  selectedDiv === prop.id && 
+                  isVisible   &&  
+                  <div className="small italic "> 
                 {prop.hasOwnProperty('specialities') && (
                   prop.specialities.map((speciality, index2) => (
                     <div className="skill-speciality" key={`${prop.id}-${index2}`} >{speciality}</div>
@@ -192,7 +266,7 @@ const formations = [
             ))}
       </div>
     )}
-
+*/
 
   const contacts = [
     {
@@ -210,7 +284,7 @@ const formations = [
 
   function DisplayContacts(props) {
     return (
-     <div id="box5" className="box" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+     <div id="box5" className="box" >
             {props.map((prop, index) => (
         <div className="my-container small" key={index}>
           <div className="contact-name bold">{prop.name}</div>
@@ -231,4 +305,4 @@ const formations = [
     let intro = "Je suis actuellement étudiant en  Master d'informatique et passionné par le développement web et JavaScript, je souhaite développer mes connaissances dans l’intégration de technologies web pour créer des applications modernes et performantes. Je suis à la recherche d'une alternance pour ma dernière année de master afin de mettre en pratique mes connaissances et de continuer à développer mes compétences dans ce domaine passionnant.";
     let conclusion = "Ayant acquis une solide expérience en résolution de problèmes techniques grâce à mes projets de fin d'études et à mes expériences professionnelles. Je suis également habitué à apprendre rapidement de nouvelles technologies et de nouveaux outils, afin de me tenir à jour dans le domaine en constante évolution. Enfin, je suis efficace dans le travail d’équipe, j'ai déjà travaillé en collaboration avec d'autres membres pour atteindre des objectifs communs. Je suis convaincu que ces compétences font de moi un atout pour tout projet de développement web et je suis impatient de continuer à développer ces compétences.";
 
-  export {DisplayTitre, intro, conclusion, formations, DisplayFormations, skills, DisplaySkills,  experiences, DisplayExperiences, contacts, DisplayContacts };
+  export {DisplayTitre, intro, conclusion, formations, DisplayFormations,   experiences, DisplayExperiences, contacts, DisplayContacts };

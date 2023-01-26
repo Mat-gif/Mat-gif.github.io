@@ -24,16 +24,16 @@ gsap.registerPlugin(ScrollTrigger)
     )
   }
 
-  const slideInLeft = (elem, delay, duration) => {
+  const slideInTop = (elem, delay, duration) => {
     gsap.fromTo(
       elem,
       {
         opacity: 0,
-        x: -400,
+        y: -100,
       },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         delay: delay || 0.4,
         duration: duration || 0.6,
         scrollTrigger: {
@@ -44,28 +44,6 @@ gsap.registerPlugin(ScrollTrigger)
       }
     )
   }
-
-  const slideInRight = (elem, delay, duration) => {
-    gsap.fromTo(
-      elem,
-      {
-        opacity: 0,
-        x: 400,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        delay: delay || 0.4,
-        duration: duration || 0.6,
-        scrollTrigger: {
-          trigger: elem,
-          start: "top center",
-          end: "bottom center"
-        }
-      }
-    )
-  }
-
 
 
   const onEnter = ({ currentTarget }) => {
@@ -77,12 +55,5 @@ gsap.registerPlugin(ScrollTrigger)
   }
 
 
-  const slideIn = (id, direction) => {
-    if (direction === "right") {
-      slideInRight(id);
-    } else if (direction === "left") {
-      slideInLeft(id);
-    }
-  }
 
-  export { onLoad, slideIn, onEnter, onLeave };
+  export { onLoad, slideInTop, onEnter, onLeave };

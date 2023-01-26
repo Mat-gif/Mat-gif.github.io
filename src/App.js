@@ -3,15 +3,11 @@ import { useEffect, useRef  } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import moi from "./moi.png"
-import {DisplayTitre, intro, conclusion,   formations, DisplayFormations, skills, DisplaySkills,  experiences, DisplayExperiences, contacts, DisplayContacts } from './Data';
-import { onLoad, slideIn, onEnter, onLeave } from './Effet';
+import {DisplayTitre, intro, conclusion,   formations, DisplayFormations,  experiences, DisplayExperiences, contacts, DisplayContacts } from './Data';
+import { onLoad, slideInTop, onEnter, onLeave } from './Effet';
 import { Link, Element  } from 'react-scroll';
 
 gsap.registerPlugin(ScrollTrigger)
-
-
-
-
 
 
 
@@ -22,20 +18,20 @@ function App() {
     onLoad();
   }, [])
 
+
+  
   useEffect(() => {
-    slideIn("#intro", "left");
+    slideInTop("#intro");
   }, []);
   useEffect(() => {
-    slideIn("#box1", "right");
+    slideInTop("#box1");
+  }, []);
+
+  useEffect(() => {
+    slideInTop("#box3");
   }, []);
   useEffect(() => {
-    slideIn("#box2", "left");
-  }, []);
-  useEffect(() => {
-    slideIn("#box3", "right");
-  }, []);
-  useEffect(() => {
-    slideIn("#conclusion", "left");
+    slideInTop("#conclusion");
   }, []);
 
   return (
@@ -46,7 +42,6 @@ function App() {
        <nav>
        <Link className="nav-link" to="section1" smooth={true} offset={0} duration={500}>Présentation</Link>
        <Link className="nav-link"to="section2" smooth={true} offset={0} duration={500}>Formations</Link>
-       <Link className="nav-link" to="section3" smooth={true} offset={0} duration={500}>Compétences</Link>
        <Link className="nav-link" to="section4" smooth={true} offset={0} duration={500}>Expériences</Link>
        <Link className="nav-link" to="section5" smooth={true} offset={0} duration={500}>Motivations</Link>
        <Link className="nav-link" to="section6" smooth={true} offset={0} duration={500}>Coordonnées</Link>
@@ -60,31 +55,27 @@ function App() {
 
   
 
-      <Element name="section1" className="elem">
-        <div id="intro" className="box small italic" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+      <Element name="section1" className="elem"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
+        <div id="intro" className="box small italic">
             {intro}
         </div>
         </Element>
 
-        <Element name="section2" className="elem" >
+        <Element name="section2" className="elem"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
           {DisplayFormations(formations)}
         </Element>
 
-        <Element name="section3" className="elem">
-          {DisplaySkills(skills)}
-        </Element>
-        
-        <Element name="section4" className="elem">
+        <Element name="section4" className="elem"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
           {DisplayExperiences(experiences)}
         </Element>
         
-        <Element name="section5" className="elem">
+        <Element name="section5" className="elem"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
         <div id="conclusion" className="box small italic"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
           {conclusion}
         </div>
         </Element>
   
-      <Element name="section6" className="elem">
+      <Element name="section6" className="elem"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
           {DisplayContacts(contacts)}
       </Element>
         
