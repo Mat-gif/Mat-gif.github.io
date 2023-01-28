@@ -273,7 +273,6 @@ const formations = [
       name: "CAZERES Mathieu",
       info:"Etudiant en Master d'Informatique",
       email: "mathieucazeres@gmail.com",
-      mobile: "0783048656",
       city: "Montpellier",
       country:"France",
       linkedin: "https://www.linkedin.com/in/mathieu-cazeres-741800225",
@@ -290,7 +289,6 @@ const formations = [
           <div className="contact-name bold">{prop.name}</div>
           <div className="contact-info"> <FontAwesomeIcon icon={faBriefcase} /> {prop.info}</div>
           <div className="contact-email"><FontAwesomeIcon icon={faEnvelope} />  {prop.email}</div>
-          <div className="contact-mobile"><FontAwesomeIcon icon={faPhone } />  {prop.mobile}</div>
           <div className="contact-address"><FontAwesomeIcon icon={faLocationDot} />  {prop.city}, {prop.country}</div>
           <div className="contact-linkedin"><FontAwesomeIcon icon={faLinkedin}/> <a href={prop.linkedin}> {prop.linkedin} </a></div>
           <div className="contact-github"><FontAwesomeIcon icon={faGithub} /> <a href={prop.github}> {prop.github} </a></div>
@@ -302,7 +300,8 @@ const formations = [
 
 
 
-    let intro = "Je suis actuellement étudiant en  Master d'informatique et passionné par le développement web et JavaScript, je souhaite développer mes connaissances dans l’intégration de technologies web pour créer des applications modernes et performantes. Je suis à la recherche d'une alternance pour ma dernière année de master afin de mettre en pratique mes connaissances et de continuer à développer mes compétences dans ce domaine passionnant.";
+    let intro = "Originaire de Nouvelle-Calédonie, je suis passionné par les technologies du web, je souhaite améliorer mes connaissances dans l’intégration de technologies web pour créer des applications modernes et performantes. Je suis à la recherche d’une alternance pour ma dernière année de master afin de développer mes compétences dans ce domaine."
+
     let conclusion = "Ayant acquis une solide expérience en résolution de problèmes techniques grâce à mes projets de fin d'études et à mes expériences professionnelles. Je suis également habitué à apprendre rapidement de nouvelles technologies et de nouveaux outils, afin de me tenir à jour dans le domaine en constante évolution. Enfin, je suis efficace dans le travail d’équipe, j'ai déjà travaillé en collaboration avec d'autres membres pour atteindre des objectifs communs. Je suis convaincu que ces compétences font de moi un atout pour tout projet de développement web et je suis impatient de continuer à développer ces compétences.";
 
   export {DisplayTitre, intro, conclusion, formations, DisplayFormations,   experiences, DisplayExperiences, contacts, DisplayContacts };
