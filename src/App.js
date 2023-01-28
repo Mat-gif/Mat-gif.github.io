@@ -10,6 +10,13 @@ import { Link, Element  } from 'react-scroll';
 gsap.registerPlugin(ScrollTrigger)
 
 
+const DownloadPDFButton = () => {
+  return (
+      <a href={require('./CV_CazeresMathieu.pdf')} download>
+          Télécharger mon CV
+      </a>
+  );
+};
 
 function App() {
 
@@ -77,6 +84,9 @@ function App() {
   
       <Element name="section6" className="elem"  onMouseEnter={onEnter} onMouseLeave={onLeave}>
           {DisplayContacts(contacts)}
+          <div>
+            <DownloadPDFButton />
+        </div>
       </Element>
         
 
