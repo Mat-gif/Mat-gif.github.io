@@ -38,7 +38,7 @@ const formations = [
     skills : [ "Javascript (Node.js, Jquery, Api REST, React)",
                 "Html, CSS, Php",
                 "Programmation orientée objet (Java)",
-                "Architectures logicielles  (Java, Api REST/SOAP, Spring)",
+                "Architectures logicielles distribuées (Java, Api REST/SOAP, Spring boot)",
                 "Scripting Système (Pyhton / Bash)",
                 "UML, algèbre relationnelle, SQL"
     ],
