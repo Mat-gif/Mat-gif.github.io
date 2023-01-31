@@ -50,7 +50,7 @@ function App() {
        <Link className="nav-link" to="section1" smooth={true} offset={0} duration={500}>Présentation</Link>
        <Link className="nav-link"to="section2" smooth={true} offset={0} duration={500}>Formations</Link>
        <Link className="nav-link" to="section4" smooth={true} offset={0} duration={500}>Expériences</Link>
-       <Link className="nav-link" to="section5" smooth={true} offset={0} duration={500}>Motivations</Link>
+       <Link className="nav-link" to="section5" smooth={true} offset={0} duration={500}>Compétences</Link>
        <Link className="nav-link" to="section6" smooth={true} offset={0} duration={500}>Coordonnées</Link>
       </nav>
     
