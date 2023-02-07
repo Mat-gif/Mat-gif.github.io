@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger)
 const DownloadPDFButton = () => {
   return (
       <a href={require('./CazeresMathieu.pdf')} download>
-          Télécharger mon CV
+          Télécharger mon CV 
       </a>
   );
 };
